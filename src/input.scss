@@ -1,0 +1,71 @@
+/* styles.css or your preferred file name */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Dark theme */
+.dark-theme {
+  --bg-color: rgb(29, 27, 27);
+  --text-color: white;
+  --primary-color: #3498db; /* You can customize your color palette */
+  /* Add more theme-specific variables as needed */
+}
+
+/* Light theme */
+.light-theme {
+  --bg-color: white;
+  --text-color: black;
+  --primary-color: #3498db; /* You can customize your color palette */
+  /* Add more theme-specific variables as needed */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body  {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Define your color palette for each theme */
+.dark-theme .primary-button {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.light-theme .primary-button {
+  background-color: var(--primary-color);
+  color: black;
+}
+
+
+  * {
+    scrollbar-width: none;
+    scrollbar-color: #B4D4FF #B4D4FF;
+  }
+
+  *::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: rgb(230,197,250);
+    background: linear-gradient(90deg, rgba(230,197,250,1) 0%, rgba(148,187,233,1) 100%);
+    border-radius: 10px;
+    border: 1px none #ffffff;
+  }
+
+
+
+
+
+
