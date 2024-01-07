@@ -3,6 +3,7 @@ import UserService from "../../../auth/service/UserService";
 import useUserState from "../../../auth/model/useUserState";
 import { ListItem, UserData } from "../../../auth/model/authTypes";
 import React from "react";
+import axiosInstance from "../../../environments/axiosInstance.ts";
 
 const useStudentList = () => {
   const [listItems, setListItems] = useState<ListItem[]>([]);
@@ -24,34 +25,31 @@ const useStudentList = () => {
     handleInputChange,
     handleSelectChange,
     resetUser,
-    handleInputEditChange
+    handleInputEditChange,
   } = useUserState();
-  
-  const [searchTerm, setSearchTerm] = React.useState('');
 
+  const [searchTerm, setSearchTerm] = React.useState("");
+  const [image, setImage] = React.useState<File | null>(null);
 
   const markItemAsUpdated = (itemId: string) => {
-    setListItems(prevListItems => 
-      prevListItems.map(item => 
+    setListItems((prevListItems) =>
+      prevListItems.map((item) =>
         item.id === itemId ? { ...item, updated: true } : item
       )
     );
-    
   };
 
-
   const handleSearch = useCallback(async () => {
-    if (searchTerm.trim() !== '') {
+    if (searchTerm.trim() !== "") {
       const searchData = await UserService.searchUsers(searchTerm);
       setListItems(searchData);
     }
   }, [searchTerm]);
-  
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
     handleSearch();
-  
+
     // if (
     //   e.target.value === '' &&
     //   e.nativeEvent &&
@@ -60,20 +58,21 @@ const useStudentList = () => {
     //   handleSearch();
     // }
   };
-  
-  
-  
-  
 
   const fetchUserList = useCallback(async () => {
-    const response = await UserService.getAllUsers({ page, pageSize: rowsPerPage });
+    const response = await UserService.getAllUsers({
+      page,
+      pageSize: rowsPerPage,
+    });
     setListItems(response);
   }, [page, rowsPerPage]);
 
   useEffect(() => {
     const fetchData = async () => {
       await Promise.all([fetchUserList(), handleSearch()]);
-      setListItems((items) => items.map((item) => ({ ...item, updated: false })));
+      setListItems((items) =>
+        items.map((item) => ({ ...item, updated: false }))
+      );
     };
 
     fetchData();
@@ -129,33 +128,34 @@ const useStudentList = () => {
     formData.append("firstname", AddUser.firstname);
     formData.append("lastname", AddUser.lastname);
     formData.append("account_type", AddUser.account_type);
-    formData.append("user_img_path", AddUser.user_img_path ?? "");
-  
+    const imageFormData = new FormData();
+    console.log(image);
+    imageFormData.append("image", image as File);
+    const response = await axiosInstance.post("/image-upload", imageFormData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+    formData.append("user_img_path", response.data.filename);
     await UserService.addUser(formData);
     await fetchUserList();
     setAddDialogOpen(false);
     resetUser();
   };
 
-
-
-
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
     if (files && files.length > 0) {
       const selectedImage = files[0];
-  
+
+      setImage(selectedImage);
+
       const reader = new FileReader();
-      reader.onloadend  = () => {
+      reader.onloadend = () => {
         setAddUser({ ...AddUser, user_img_path: reader.result as string });
       };
-  
+
       reader.readAsDataURL(selectedImage);
     }
   };
-  
-  
-  
 
   const handleSelectAll = () => {
     setSelectAll(!selectAll);
@@ -274,9 +274,7 @@ const useStudentList = () => {
     handleChangeRowsPerPage,
     markItemAsUpdated,
     handleChange,
-
   };
 };
 
 export default useStudentList;
-
