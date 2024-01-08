@@ -1,6 +1,6 @@
 import React from "react";
 import { useColorScheme } from "@mui/joy/styles";
-import { Typography, Card, Sheet } from "@mui/joy";
+import { Typography, Sheet } from "@mui/joy";
 
 const HomeUser: React.FC = () => {
     const { mode } = useColorScheme();
@@ -31,7 +31,7 @@ const HomeUser: React.FC = () => {
             Reservation Room
             </Typography>
         </div>
-        <Card
+        <Sheet
             sx={{
             ...(mode === "dark"
                 ? { background: " #080D1A" }
@@ -61,7 +61,7 @@ const HomeUser: React.FC = () => {
                 </Typography>
             </p>
             </div>
-        </Card>
+        </Sheet>
         <Sheet
             sx={{
             ...(mode === "dark"
