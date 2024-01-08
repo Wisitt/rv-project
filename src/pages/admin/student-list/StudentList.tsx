@@ -93,15 +93,9 @@ const StudentList: React.FC = () => {
             overflow: "auto",
             background: (
               theme
-            ) => `linear-gradient(${theme.vars.palette.background.surface} ,
-                      0 100%`,
-            backgroundSize:
-              "40px calc(100% - var(--TableCell-height)), 40px calc(100% - var(--TableCell-height)), 14px calc(100% - var(--TableCell-height)), 14px calc(100% - var(--TableCell-height))",
-            backgroundRepeat: "no-repeat",
-            backgroundAttachment: "local, local, scroll, scroll",
-            backgroundPosition:
-              "var(--Table-firstColumnWidth) var(--TableCell-height), calc(100% - var(--Table-lastColumnWidth)) var(--TableCell-height), var(--Table-firstColumnWidth) var(--TableCell-height), calc(100% - var(--Table-lastColumnWidth)) var(--TableCell-height)",
-            backgroundColor: "nav.bg",
+            ) => `linear-gradient(${theme.vars.palette.background.backdrop} ,
+                      0%`,
+            backgroundColor: "background.popup",
           }}
         >
           <Table
@@ -502,8 +496,7 @@ const StudentList: React.FC = () => {
             {clickedImageUrl && (
               <img
                 src={clickedImageUrl}
-                alt="Full-size"
-                style={{ width: "100%", height: "100%" }}
+                style={{ width: "300px", height: "300px" }}
               />
             )}
           </DialogContent>

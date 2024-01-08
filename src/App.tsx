@@ -17,7 +17,7 @@ import { Toaster} from 'sonner'
 // import User from "./pages/student/student";
 
 ////user 
-import Room from "./pages/user/room/Room";
+import Room from "./pages/user/room/Reservation";
 
 
 ////admin

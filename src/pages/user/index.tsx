@@ -7,30 +7,30 @@ const HomeUser: React.FC = () => {
 
     return (
         <div className="xl:container mx-auto">
-      <div
-        className={`bg-cover bg-center bg-fixed overflow-y-scroll py-24 sm:py-32 md:py-40 relative ${
-          mode === "dark"
-            ? "dark:bg-gradient-to-b from-gray-950 to-gray-900"
-            : "light:bg-white"
-        }`}
-        style={{
-          width: "100%",
-          height: "600px",
-          position: "relative",
-        }}
-      >
-        <Typography
-          sx={{
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            position: "absolute",
-            fontSize: "4rem",
-          }}
+        <div
+            className={`bg-cover bg-center bg-fixed overflow-y-scroll py-24 sm:py-32 md:py-40 relative ${
+            mode === "dark"
+                ? "dark:bg-gradient-to-b from-gray-950 to-gray-900"
+                : "light:bg-white"
+            }`}
+            style={{
+            width: "100%",
+            height: "600px",
+            position: "relative",
+            }}
         >
-          Reservation Room
-        </Typography>
-      </div>
+            <Typography
+            sx={{
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                position: "absolute",
+                fontSize: "4rem",
+            }}
+            >
+            Reservation Room
+            </Typography>
+        </div>
         <Card style={{ marginTop: "0", zIndex: "1" }}>
             <div className=" p-4 sm:p-8 z-1">
             <div className="font-inter font-extrabold text-2xl text-black tracking-tight">

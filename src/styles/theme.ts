@@ -7,6 +7,7 @@
       pf:true;
       menu:true;
       bgSty?:string;
+      navSide?:string;
     }
   
     interface NavPaletteOptions {
@@ -15,6 +16,7 @@
       hoverBg?: string;
       menu?: string;
       bgSty?:string;
+      navSide?:string;
     }
   
     interface Palette {
@@ -23,6 +25,7 @@
       pf:PaletteRange & NavPaletteOptions;
       menu:PaletteRange & NavPaletteOptions;
       bgSty:PaletteRange & NavPaletteOptions;
+      navSide:PaletteRange & NavPaletteOptions;
 
     }
   
@@ -32,10 +35,12 @@
       pf?:NavPaletteOptions;
       menu?:NavPaletteOptions;
       bgSty?:NavPaletteOptions;
+      navSide?:NavPaletteOptions;
 
     }
   }
   const neutral = {
+    0:'#fff',
     50: '#F7F7F8',
     100: '#EBEBEF',
     200: '#D8D8DF',
@@ -48,6 +53,7 @@
     900: '#131318',
     dark:'#1D232A',
     nav:'#191E24',
+    navSide:'#161720',
     border:'#383F47',
     bgStyle:'#101728'
   };
@@ -108,6 +114,8 @@
             bg: 'var(--joy-palette-neutral-50)',
             color: 'var(--joy-palette-neutral-300)',
             hoverBg: 'var(--joy-palette-neutral-50)',
+            navSide:'var(--joy-palette-neutral-0)',
+
           },
           main:{
             bg: 'var(--joy-palette-neutral-50)',
@@ -173,6 +181,7 @@
             bg: 'var(--joy-palette-neutral-nav)',
             color: 'var(--joy-palette-neutral-700)',
             hoverBg: 'var(--joy-palette-neutral-50)',
+            navSide:'var(--joy-palette-neutral-navSide)',
           },
           main:{
             bg: 'var(--joy-palette-neutral-dark)',
