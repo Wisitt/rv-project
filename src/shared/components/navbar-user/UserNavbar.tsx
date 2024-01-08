@@ -167,6 +167,7 @@ const UserProfileSidebar: React.FC = () => {
         sx={{
           zIndex: 2,
           boxShadow: "none",
+          marginBottom:2
         }}
       >
         {mode === "light" ? (
@@ -231,17 +232,17 @@ const UserProfileSidebar: React.FC = () => {
           <Main id="main">
             <HeaderNav>
               <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl flex items-center justify-between gap-5 h-[--header-height]">
-                <Box>
+                <Box sx={{ flexGrow: 0 ,marginBottom:2}}>
                   <span></span>
                 </Box>
                 {!isMobile && (
                   <>
-                  <Box>
+                  <Box sx={{ flexGrow: 0 ,marginBottom:2}}>
                   <div className="lg:flex-1 flex items-center gap-1.5">
                     <span><Link to="/user/page">LOGO</Link></span>
                   </div>
                   </Box>
-                  <Box component="nav" sx={{ flexGrow: 0 }}>
+                  <Box component="nav" sx={{ flexGrow: 0 ,marginBottom:2}}>
                       <List role="menubar" orientation="horizontal">
                         {UserSidebarData.map((item, index) => (
                           <MenuItemsNav key={index}>
@@ -273,6 +274,7 @@ const UserProfileSidebar: React.FC = () => {
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
+                        marginBottom:2
                       }}
                     >
                       <Avatar variant="solid" src={userProfile.user_img_path}>

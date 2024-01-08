@@ -48,7 +48,7 @@ const Room: React.FC = () => {
           container
           spacing={2}
           columns={{ xs: 12, sm: 6, md: 4, lg: 3 }}
-          sx={{ alignItems: 'center', flexGrow: 1, padding: 4 }}
+          sx={{ alignItems: 'center', flexGrow: 1, padding: 8,marginTop:3}}
         >
           <Grid>
             <FormLabel>dateTimestart</FormLabel>

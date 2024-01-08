@@ -8,6 +8,7 @@
       menu:true;
       bgSty?:string;
       navSide?:string;
+      userNav?:string;
     }
   
     interface NavPaletteOptions {
@@ -17,6 +18,7 @@
       menu?: string;
       bgSty?:string;
       navSide?:string;
+      userNav?:string;
     }
   
     interface Palette {
@@ -26,6 +28,7 @@
       menu:PaletteRange & NavPaletteOptions;
       bgSty:PaletteRange & NavPaletteOptions;
       navSide:PaletteRange & NavPaletteOptions;
+      userNav:PaletteRange & NavPaletteOptions;
 
     }
   
@@ -36,7 +39,7 @@
       menu?:NavPaletteOptions;
       bgSty?:NavPaletteOptions;
       navSide?:NavPaletteOptions;
-
+      userNav?:NavPaletteOptions;
     }
   }
   const neutral = {
@@ -55,7 +58,8 @@
     nav:'#191E24',
     navSide:'#161720',
     border:'#383F47',
-    bgStyle:'#101728'
+    bgStyle:'#101728',
+    usNav: 'rgba(2, 4, 32, 0.2)'
   };
 
   const theme = extendTheme({
@@ -115,7 +119,9 @@
             color: 'var(--joy-palette-neutral-300)',
             hoverBg: 'var(--joy-palette-neutral-50)',
             navSide:'var(--joy-palette-neutral-0)',
-
+          },
+          userNav:{
+            bg: 'rgba(255, 255, 255, 0.8)',
           },
           main:{
             bg: 'var(--joy-palette-neutral-50)',
@@ -182,6 +188,9 @@
             color: 'var(--joy-palette-neutral-700)',
             hoverBg: 'var(--joy-palette-neutral-50)',
             navSide:'var(--joy-palette-neutral-navSide)',
+          },
+          userNav:{
+            bg: 'var(--joy-palette-neutral-usNav)',
           },
           main:{
             bg: 'var(--joy-palette-neutral-dark)',
