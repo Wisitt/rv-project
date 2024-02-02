@@ -8,11 +8,11 @@ describe('Login Page', () => {
         cy.wait(1000)
         cy.get('[data-cy=input-idCard]').type('1');
         cy.wait(1000)
-        cy.get('[data-cy=login-btn]').click();
+        cy.get('[data-cy=login-btn]').click({ force: true });
         cy.wait(1000)
         cy.visit('http://localhost:5173/admin/student-list');
-        cy.get('[data-cy=student-list-delete]').click({ multiple: true } );
-        
-
+        cy.get('[data-cy=student-list-delete]').click({ multiple: true, force: true });
+        cy.wait(1000)
+        cy.get('[data-cy=student-list-confirm-delete]').click({ force: true });
     });
 });

@@ -181,6 +181,7 @@ const StudentList: React.FC = () => {
                         checked={selectedItems.includes(item.id)}
                         onChange={() => handleCheckboxChange(item.id)}
                         color="primary"
+                        data-cy="student-list-select"
                       />
                     </th>
                     <th>
@@ -201,6 +202,7 @@ const StudentList: React.FC = () => {
                           onClick={() => {
                             handleEdit(item);
                           }}
+                          data-cy="student-list-edit"
                         >
                           Edit
                         </Button>
@@ -210,6 +212,7 @@ const StudentList: React.FC = () => {
                           endDecorator={<DeleteForever />}
                           onClick={() => handleDelete(item.id)}
                           className="delete"
+                          data-cy="student-list-delete"
                         >
                           Delete
                         </Button>
@@ -244,6 +247,7 @@ const StudentList: React.FC = () => {
                   variant="solid"
                   color="danger"
                   onClick={handleDeleteConfirmed}
+                  data-cy="student-list-confirm-delete"
                 >
                   Confirm Delete
                 </Button>
