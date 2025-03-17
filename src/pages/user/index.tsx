@@ -65,7 +65,7 @@ const HomeUser: React.FC = () => {
                 animationRangeEnd: "cover 50vh",
                 }}
             >
-                Reservation Room
+                ClassReserve
             </Typography>
             <Typography
                 level="title-md"
